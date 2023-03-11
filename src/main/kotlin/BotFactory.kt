@@ -74,10 +74,8 @@ class BotFactory {
                 )
             }
             text(humanResourceContacts) {
-
                 val humanResourceMessage =
                     bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = "Вот контакты")
-
                 Files.write(
                     logFile.toPath(),
                     "\n send $humanResourceContacts $humanResourceMessage".toByteArray(),
@@ -111,21 +109,20 @@ class BotFactory {
                     text = "Выберите необходимую справку",
                     replyMarkup = button
                 )
+            }
 
-                callbackQuery("Справка 1") {
-                    bot.sendMessage(
-                        chatId = ChatId.fromId(callbackQuery.message!!.chat.id),
-                        text = "Информация по первой справке",
-                    )
-                }
+            callbackQuery("Справка 1") {
+                bot.sendMessage(
+                    chatId = ChatId.fromId(callbackQuery.message!!.chat.id),
+                    text = "Информация по первой справке",
+                )
+            }
 
-                callbackQuery("Справка 2") {
-                    bot.sendMessage(
-                        chatId = ChatId.fromId(callbackQuery.message!!.chat.id),
-                        text = "Информация по второй справке",
-                    )
-                }
-
+            callbackQuery("Справка 2") {
+                bot.sendMessage(
+                    chatId = ChatId.fromId(callbackQuery.message!!.chat.id),
+                    text = "Информация по второй справке",
+                )
             }
         }
 
